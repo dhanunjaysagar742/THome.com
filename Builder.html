@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sri Balaji Constructions</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    padding-top: 60px; /* Reduced to match navbar height */
+    background-color: #f8f9fa;
+  }
+
+  /* Navbar Styling */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    height: auto;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem; /* Reduced from 2.5rem */
+    margin-left: 10px;
+    line-height: 1.2;
+  }
+
+  .nav-link {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .language-select {
+    margin-left: 10px;
+    width: auto;
+    font-size: 0.8rem;
+    height: 32px;
+    padding: 2px 8px;
+  }
+
+  .logo-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #fcbf49;
+  }
+
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('./Hero.jpg') center/cover no-repeat;
+    height: 500px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    background-color: #fcbf49;
+    border: none;
+    color: #000;
+  }
+
+  .btn-primary:hover {
+    background-color: #f77f00;
+  }
+
+  /* Icons and Cards */
+  .services-icon {
+    font-size: 3rem;
+    color: #0d6efd;
+  }
+
+  .section-bg {
+    background-color: #e9ecef;
+  }
+
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fcbf49;
+  }
+
+  /* Footer */
+  footer {
+    background-color: #343a40;
+    color: white;
+    padding: 40px 0;
+  }
+
+  footer a {
+    color: #fcbf49;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Fixed Buttons */
+  .fixed-buttons {
+    position: fixed;
+    z-index: 999;
+  }
+
+  .whatsapp {
+    right: 20px;
+    bottom: 20px;
+    background-color: #25d366;
+    color: white;
+    font-size: 28px;
+    padding: 12px 15px;
+    border-radius: 50%;
+  }
+
+  .up-arrow {
+    right: 20px;
+    bottom: 80px;
+    background-color: #007bff;
+    color: white;
+    font-size: 22px;
+    padding: 12px 15px;
+    border-radius: 50%;
+  }
+
+  /* Carousel */
+  .carousel-item {
+    height: 350px;
+  }
+
+  .carousel-item img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Cards */
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .carousel-caption{
+    color: rgb(219, 132, 1);
+  }
+
+/* Colored and Larger Arrows */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(218, 92, 8, 0.6); /* dark translucent background */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+  content: '';
+  display: inline-block;
+}
+
+
+  #carouselExampleCaptions.carousel {
+  transition: transform 0.1s ease-in-out;
+}
+</style>
+
+  <!-- <style>
+    html { scroll-behavior: smooth; }
+    body { padding-top: 70px; background-color: #f8f9fa; }
+
+    .navbar { position: fixed; top: 0; width: 100%; z-index: 1030; }
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('./Hero.jpg') center/cover no-repeat;
+      height: 500px; color: white; display: flex; align-items: center; justify-content: center; text-align: center;
+    }
+
+    .btn-primary { background-color: #fcbf49; border: none; color: #000; }
+    .btn-primary:hover { background-color: #f77f00; }
+
+    .services-icon { font-size: 3rem; color: #0d6efd; }
+    .section-bg { background-color: #e9ecef; }
+    .profile-img {
+      width: 150px; height: 150px; object-fit: cover;
+      border-radius: 50%; border: 4px solid #fcbf49;
+    }
+
+    footer { background-color: #343a40; color: white; padding: 40px 0; }
+    footer a { color: #fcbf49; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    .fixed-buttons { position: fixed; z-index: 999; }
+    .whatsapp {
+      right: 20px; bottom: 20px;
+      background-color: #25d366; color: white;
+      font-size: 28px; padding: 12px 15px; border-radius: 50%;
+    }
+    .up-arrow {
+      right: 20px; bottom: 80px;
+      background-color: #007bff; color: white;
+      font-size: 22px; padding: 12px 15px; border-radius: 50%;
+    }
+
+    .language-select {
+      margin-left: 10px;
+      width: auto;
+      font-size: 0.8rem;
+      height: 32px;
+      padding: 2px 8px;
+    }
+.logo-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;     /* ensures image fills the circle neatly */
+  border-radius: 50%;    /* makes it a perfect circle */
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #fcbf49;  /* optional: gives a styled border */
+}
+.carousel-item {
+  height: 400px;
+}
+.carousel-item img {
+  height: 100%;
+  object-fit: cover;
+}
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  </style> -->
+</head>
+<body>
+
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+  <div class="container">
+    <img src="./https://imgbb.com/"><img src="https://i.ibb.co/CpmSq8pg/LOGO.jpg" class="logo-img mb-3" alt="Sri Balaji Logo"> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="navbar-brand" href="#" style="font-size: 2.5rem;">Sri Balaji Constructions</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active lang" href="#" data-key="home">Home</a></li>
+        <li class="nav-item"><a class="nav-link lang" href="#services" data-key="services">Services</a></li>
+        <li class="nav-item"><a class="nav-link lang" href="#carousel" data-key="projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link lang" href="#profile" data-key="builder">Builder</a></li>
+        <li class="nav-item"><a class="nav-link lang" href="#contact" data-key="contact">Contact</a></li>
+      </ul>
+      <select class="form-select form-select-sm language-select" onchange="changeLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="te">తెలుగు</option>
+        <option value="hi">हिंदी</option>
+      </select>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div>
+    <h1 class="lang" data-key="headline">Sri Balaji Constructions</h1>
+    <h2 class="lang" data-key="headline">We Build Your Dreams</h2>
+    <p class="lead lang" data-key="subtext">Reliable. Modern. Efficient.</p>
+    <a href="#services" class="btn btn-primary btn-lg mt-3 lang" data-key="btn_services">Our Services</a>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="py-5 section-bg">
+  <div class="container text-center">
+    <h2 class="mb-4 lang" data-key="services">Our Services</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="services-icon mb-3">⚖️</div>
+        <h5 class="lang" data-key="residential">Residential Buildings</h5>
+        <p class="lang" data-key="res_desc">Beautiful homes tailored to your needs and budget.</p>
+      </div>
+      <div class="col-md-4">
+        <div class="services-icon mb-3">⛗️</div>
+        <h5 class="lang" data-key="commercial">Commercial Spaces</h5>
+        <p class="lang" data-key="com_desc">From offices to malls — durable and functional designs.</p>
+      </div>
+      <div class="col-md-4">
+        <div class="services-icon mb-3">⚙️</div>
+        <h5 class="lang" data-key="renovation">Renovation & Repairs</h5>
+        <p class="lang" data-key="ren_desc">Modernize and enhance your property with quality work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Carousel -->
+<section id="carousel" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4 lang" data-key="projects">Our Projects</h2>
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://i.ibb.co/gLV0BxMz/3BHK.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>First slide label</h1>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://i.ibb.co/cXLjNSY5/33BHK.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>Second slide label</h1>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://i.ibb.co/b5Z0bxkX/2BHK.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>Third slide label</h1>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+  </div>
+</section>
+<!-- Project Cards -->
+<section id="project-cards" class="py-5 section-bg">
+  <div class="container">
+    <h2 class="text-center mb-4">Featured Projects</h2>
+    <div class="row g-4">
+      
+      <!-- Project 1 -->
+    <div class="col-md-3">
+  <div class="card">
+    <img src="https://i.ibb.co/gLV0BxMz/3BHK.jpg" class="card-img-top" alt="T Home">
+    <div class="card-body">
+      <h5 class="card-title">T HOME</h5>
+      <p class="card-text">3 BHK / 2BHK Luxury Apartments</p>
+      <p><i class="fas fa-map-marker-alt"></i> Badangpet</p>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal" >
+        View More Details
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="projectModalLabel">Project Details</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modalContent">
+        <!-- External page content will load here -->
+         <iframe src="project-details.html" width="100%" height="500px" style="border:none;"></iframe>
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Project 2 -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="https://i.ibb.co/b5Z0bxkX/2BHK.jpg" class="card-img-top" alt="T Home">
+          <div class="card-body">
+            <h5 class="card-title">T Home</h5>
+            <p class="card-text">2 BHK Premium Lifestyle Apartments</p>
+            <p><i class="fas fa-map-marker-alt"></i> Badangpet, Hyderabad</p>
+            <a href="project-details.html?id=Tridasa" class="btn btn-primary">View More Details</a>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Project 3 -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="https://i.ibb.co/b5Z0bxkX/2BHK.jpg" class="card-img-top" alt="T Home">
+          <div class="card-body">
+            <h5 class="card-title">T Home</h5>
+            <p class="card-text">2 BHK Premium Lifestyle Apartments</p>
+            <p><i class="fas fa-map-marker-alt"></i> Badangpet, Hyderabad</p>
+            <a href="project-details.html?id=Tridasa" class="btn btn-primary">View More Details</a>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Project 4 -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="https://i.ibb.co/b5Z0bxkX/2BHK.jpg" class="card-img-top" alt="T Home">
+          <div class="card-body">
+            <h5 class="card-title">T Home</h5>
+            <p class="card-text">2 BHK Premium Lifestyle Apartments</p>
+            <p><i class="fas fa-map-marker-alt"></i> Badangpet, Hyderabad</p>
+            <a href="project-details.html?id=Tridasa" class="btn btn-primary">View More Details</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Builder -->
+<section id="profile" class="py-5 section-bg">
+  <div class="container text-center">
+    <h2 class="mb-4 lang" data-key="builder">Meet Our Builder</h2>
+    <img src="https://i.ibb.co/gZ530wPC/BULPIC.jpg" class="profile-img mb-3" alt="Builder">
+    <h5>P THULS SAGAR</h5>
+    <p class="lang" data-key="bio">Founder & Chief Engineer with 15+ years of trusted experience.</p>
+  </div>
+</section>
+
+<!-- Contact -->
+<!-- Contact with Google Form + WhatsApp -->
+<section id="contact" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form id="gform" onsubmit="return submitFormToGoogle()">
+          
+          <div class="mb-3">
+            <label>Your Name</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+          <div class="mb-3">
+            <label>Your Email</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="mb-3">
+            <label>Mobile Number</label>
+            <input type="tel" class="form-control" id="mobile" required>
+          </div>
+          <div class="mb-3">
+            <label>Your Message</label>
+            <textarea class="form-control" rows="4" id="message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <h5>Useful Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Home</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#carousel">Projects</a></li>
+          <li><a href="#profile">Builder</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Contact Info</h5>
+        <p>Email: info@sribalajiconstructions.com</p>
+        <p>Phone: +91-9000853999</p>
+        <p>Hyderabad, India</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>About Sri Balaji</h5>
+        <p>We deliver modern infrastructure with lasting value.</p>
+      </div>
+    </div>
+    <div class="text-center pt-3">
+      <p>&copy; 2025 Sri Balaji Constructions. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Buttons -->
+<div class="fixed-buttons up-arrow" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">
+  <i class="fas fa-arrow-up"></i>
+</div>
+<br>
+<a href="https://wa.me/919000853999" class="fixed-buttons whatsapp" title="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Language Script and Bootstrap -->
+<script>
+  // language object here (unchanged from previous)
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function showProjectDetails(project) {
+    const content = {
+      Raka: `
+        <h4>My Home Raka</h4>
+        <ul>
+          <li>Location: Madinaguda</li>
+          <li>Configuration: 3 BHK Luxury Apartments</li>
+          <li>Amenities: Clubhouse, Gym, Swimming Pool, Children's Play Area</li>
+          <li>Possession: 2025</li>
+          <li>Contact: 9000853999</li>
+        </ul>
+      `,
+      Tridasa: `
+        <h4>My Home Tridasa</h4>
+        <ul>
+          <li>Location: Tellapur, Hyderabad</li>
+          <li>Configuration: 2, 2.5 & 3 BHK Apartments</li>
+          <li>Amenities: Multipurpose Hall, Tennis Court, Yoga Room, Indoor Games</li>
+          <li>Possession: 2026</li>
+          <li>Contact: 9000853999</li>
+        </ul>
+      `
+    };
+    document.getElementById("projectModalContent").innerHTML = content[project];
+    new bootstrap.Modal(document.getElementById("projectModal")).show();
+  }
+</script>
+<script>
+  function submitFormToGoogle() {
+   
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScmtBq_UUK3u4j85drDKNjWKtWgd82egnOgHiaOL-oocCyNPQ/formResponse"; // Replace with your form action URL
+    // const data = new URLSearchParams();
+     const formData = new FormData();
+
+    // Replace with your actual entry IDs from Google Form
+    formData.append("entry.1185518484", name);
+    formData.append("entry.1621370170", email);
+    formData.append("entry.1624467967", mobile);
+    formData.append("entry.602245275", message);
+
+ 
+    fetch(formUrl, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    });
+
+    // // WhatsApp redirection
+    // const phoneNumber = "7799448297"; // your WhatsApp number
+    // const whatsappText = `Hello Sri Balaji Constructions,%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Mobile:* ${mobile}%0A*Message:* ${message}`;
+    // const whatsappUrl = `https://wa.me/91${phoneNumber}?text=${whatsappText}`;
+
+    setTimeout(() => {
+      window.open(whatsappUrl, '_blank');
+    }, 300); // small delay to allow form submission
+
+    return false; // prevent default form submission
+  }
+</script>
+
+
+</body>
+</html>
